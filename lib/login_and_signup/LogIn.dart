@@ -6,6 +6,7 @@ import 'package:tennis_login/login_and_signup/FindID.dart';
 import 'package:tennis_login/login_and_signup/FindPassword.dart';
 import 'package:tennis_login/login_and_signup/SignUp.dart';
 import 'package:tennis_login/login_and_signup/user.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 
 class LogIn extends StatefulWidget {
@@ -50,10 +51,15 @@ class _LogInState extends State<LogIn> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                 // 테니스 재미쓰 로고
-                    Image.asset(
-                        'images/tennisfun_LogIn_Logo.JPG',
-                        width: 80,
-                        height: 165
+                    // Image.asset(
+                    //     'images/tennis.logo.svg',
+                    //     width: 80,
+                    //     height: 165
+                    //   ),
+                    SvgPicture.asset(
+                      'images/tennis.logo.svg', 
+                        width: 100, 
+                        height: 100,
                       ),
                     SizedBox(height: 29),
                     Container(
