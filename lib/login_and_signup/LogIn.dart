@@ -51,7 +51,7 @@ class _LogInState extends State<LogIn> {
                 children: <Widget>[
                 // 테니스 재미쓰 로고
                     Image.asset(
-                        'images/tennisfun_LogIn_Logo.jpg',
+                        'images/tennisfun_LogIn_Logo.JPG',
                         width: 80,
                         height: 165
                       ),
