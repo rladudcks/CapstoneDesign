@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
-import 'package:tennis_login/login_and_signup/FindID.dart';
-import 'package:tennis_login/login_and_signup/FindPassword.dart';
-import 'package:tennis_login/login_and_signup/SignUp.dart';
+import 'package:tennis_login/login_and_signup/find_id.dart';
+import 'package:tennis_login/login_and_signup/find_pw.dart';
+import 'package:tennis_login/login_and_signup/sign_up.dart';
 import 'package:tennis_login/login_and_signup/user.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
