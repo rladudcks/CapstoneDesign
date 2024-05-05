@@ -110,7 +110,7 @@ class _LogInState extends State<LogIn> {
                             // 입력창 배경은 회색, 선택할 때 흰색
                             filled: true,
                             fillColor: _isFocused ? Colors.white : Color(0xFFEDEDED),
-                            hintText: '아이디를 입력해주세요',
+                            hintText: '아이디를 입력해주세요요',
                             enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
                                 borderSide: BorderSide(color: Color(0xFFEDEDED))),
