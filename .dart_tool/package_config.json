@@ -98,6 +98,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "flutter_card_swiper",
+      "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/flutter_card_swiper-7.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "flutter_lints",
       "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/flutter_lints-3.0.2",
       "packageUri": "lib/",
@@ -392,7 +398,7 @@
       "languageVersion": "3.3"
     }
   ],
-  "generated": "2024-05-08T17:52:12.063694Z",
+  "generated": "2024-05-08T18:56:43.648027Z",
   "generator": "pub",
   "generatorVersion": "3.3.4"
 }

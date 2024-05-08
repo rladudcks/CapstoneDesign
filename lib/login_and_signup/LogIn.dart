@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
-import 'package:tennis_login/general_user/tennis_match.dart';
+import 'package:tennis_login/general_user/main_screens.dart';
 import 'package:tennis_login/login_and_signup/find_id.dart';
 import 'package:tennis_login/login_and_signup/find_pw.dart';
 import 'package:tennis_login/login_and_signup/sign_up.dart';
@@ -255,7 +255,7 @@ class _LogInState extends State<LogIn> {
                     borderRadius: BorderRadius.circular(20))),
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => TennisMatch()));
+                  MaterialPageRoute(builder: (context) => MainScreens()));
               // if (user_formKey.currentState!.validate()) {
               //   save();
               //   //로그인 성공 시 사용자 메인화면으로 이동
