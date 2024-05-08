@@ -1,24 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 
-class TennisMatchScreen extends StatelessWidget {
+class TennisMatchScreen extends StatefulWidget {
+  const TennisMatchScreen({
+    super.key,
+  });
+
+  @override
+  _TennisMatchScreenState createState() => _TennisMatchScreenState();
+}
+
+class _TennisMatchScreenState extends State<TennisMatchScreen> {
+  List<Container> cards = [
+    Container(
+      alignment: Alignment.center,
+      child: const Text('1'),
+      color: Colors.lightBlueAccent,
+    ),
+    Container(
+      alignment: Alignment.center,
+      child: const Text('2'),
+      color: Colors.lightGreenAccent,
+    ),
+    Container(
+      alignment: Alignment.center,
+      child: const Text('3'),
+      color: Colors.orangeAccent,
+    )
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('앱바 영역'),
       ),
-      body: Container(
-        color: Colors.blue,
-        child: Center(
-          child: Text(
-            '테니스 매치 화면',
-            style: TextStyle(
-              fontSize: 24,
-              color: Colors.white,
-              //추후 textTheme().displayMedium, 처리해야함
-            ),
-          ),
+      body: Flexible(
+        child: CardSwiper(
+          cardsCount: cards.length,
+          cardBuilder: (context, index, percentThresholdX, percentThresholdY) =>
+              cards[index],
         ),
       ),
     );
