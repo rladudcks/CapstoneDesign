@@ -153,19 +153,23 @@
     },
     {
       "name": "leak_tracker",
+
       "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/leak_tracker-10.0.5",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
     {
       "name": "leak_tracker_flutter_testing",
+
       "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/leak_tracker_flutter_testing-3.0.5",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
     {
       "name": "leak_tracker_testing",
+
       "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/leak_tracker_testing-3.0.1",
+
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
@@ -189,13 +193,17 @@
     },
     {
       "name": "material_color_utilities",
+
       "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/material_color_utilities-0.11.1",
+
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "meta",
+
       "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/meta-1.14.0",
+
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -321,7 +329,9 @@
     },
     {
       "name": "test_api",
+
       "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/test_api-0.7.1",
+
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -369,7 +379,9 @@
     },
     {
       "name": "vm_service",
+
       "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/vm_service-14.2.2",
+
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -398,10 +410,12 @@
       "languageVersion": "3.3"
     }
   ],
+
   "generated": "2024-05-09T11:10:39.061169Z",
   "generator": "pub",
   "generatorVersion": "3.5.0-138.0.dev",
   "flutterRoot": "file:///Users/leo/flutter",
   "flutterVersion": "3.22.0-29.0.pre.7",
   "pubCache": "file:///Users/leo/.pub-cache"
+
 }
