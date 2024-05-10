@@ -1,4 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> <!-- 쓰기 권한 부여 -->
+    
     <application
         android:label="tennis_login"
         android:name="${applicationName}"
