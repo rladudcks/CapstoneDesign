@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:tennis_login/components/location_map.dart';
 // import 'package:tennis_login/screens/maps/loacation_map.dart';
 
 class MatchInfo extends StatefulWidget {
@@ -121,6 +122,11 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                               BorderRadius.circular(20))),
                                   onPressed: () {
                                     // Todo : 등록화면 만들기
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => LocationMap()),
+                                    );
                                   },
                                   child: Text('예약 코트 등록하기',
                                       textAlign: TextAlign.center,
@@ -867,12 +873,12 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                                 borderRadius:
                                                     BorderRadius.circular(20))),
                                         onPressed: () {
-                                          // Navigator.push(
-                                          //   context,
-                                          //   MaterialPageRoute(
-                                          //       builder: (context) =>
-                                          //           LocationMap()),
-                                          // );
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    LocationMap()),
+                                          );
                                         },
                                         child: Row(children: [
                                           Icon(
