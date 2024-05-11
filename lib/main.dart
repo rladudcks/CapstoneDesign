@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 // import 'package:mongo_dart/mongo_dart.dart';
-import 'package:tennis_login/login_and_signup/login.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:kakao_map_plugin/kakao_map_plugin.dart';
+import 'package:tennis_login/screens/login_and_signup/LogIn.dart';
+import 'package:tennis_login/theme.dart';
 
 // void main() {
 //   runApp(MyApp());
@@ -55,10 +56,6 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'TennisJamiss',
-        theme: ThemeData(
-            primaryColor: Colors.white,
-            visualDensity: VisualDensity.adaptivePlatformDensity),
-        home: LogIn(key: UniqueKey()));
+        title: 'TennisJamiss', theme: theme(), home: LogIn(key: UniqueKey()));
   }
 }
