@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
-import 'package:tennis_login/screens/match/match_Info.dart';
+import 'package:tennis_jamiss/screens/match/match_Info.dart';
 
 class TennisMatchScreen extends StatefulWidget {
   const TennisMatchScreen({

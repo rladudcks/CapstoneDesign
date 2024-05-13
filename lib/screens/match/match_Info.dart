@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:tennis_login/components/location_map.dart';
+import 'package:tennis_jamiss/components/location_map.dart';
 // import 'package:tennis_login/screens/maps/loacation_map.dart';
 
 class MatchInfo extends StatefulWidget {

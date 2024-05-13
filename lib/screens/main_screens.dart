@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tennis_login/screens/chatting/chatting_screen.dart';
-import 'package:tennis_login/screens/club/club_screen.dart';
-import 'package:tennis_login/screens/match/tennis_match_screen.dart';
-import 'package:tennis_login/screens/my_page/my_page.dart';
-import 'package:tennis_login/screens/referee/referee_screen.dart';
+import 'package:tennis_jamiss/screens/chatting/chatting_screen.dart';
+import 'package:tennis_jamiss/screens/club/club_screen.dart';
+import 'package:tennis_jamiss/screens/match/tennis_match_screen.dart';
+import 'package:tennis_jamiss/screens/my_page/my_page.dart';
+import 'package:tennis_jamiss/screens/referee/referee_screen.dart';
 
 class MainScreens extends StatefulWidget {
   @override

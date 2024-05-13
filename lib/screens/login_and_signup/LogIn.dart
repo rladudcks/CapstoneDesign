@@ -2,14 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
-import 'package:tennis_login/screens/login_and_signup/Login_Info.dart';
-import 'package:tennis_login/screens/login_and_signup/find_id.dart';
-import 'package:tennis_login/screens/login_and_signup/find_pw.dart';
-import 'package:tennis_login/screens/login_and_signup/sign_up.dart';
-
-import 'package:tennis_login/screens/main_screens.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tennis_jamiss/screens/login_and_signup/Login_Info.dart';
+import 'package:tennis_jamiss/screens/login_and_signup/find_id.dart';
+import 'package:tennis_jamiss/screens/login_and_signup/find_pw.dart';
+import 'package:tennis_jamiss/screens/login_and_signup/sign_up.dart';
+import 'package:tennis_jamiss/screens/main_screens.dart';
 
 class LogIn extends StatefulWidget {
   LogIn({required Key key}) : super(key: key);

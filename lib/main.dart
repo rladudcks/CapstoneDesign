@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 // import 'package:mongo_dart/mongo_dart.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:kakao_map_plugin/kakao_map_plugin.dart';
-import 'package:tennis_login/screens/login_and_signup/LogIn.dart';
-import 'package:tennis_login/theme.dart';
+import 'package:tennis_jamiss/screens/login_and_signup/LogIn.dart';
+import 'package:tennis_jamiss/theme.dart';
 
 // void main() {
 //   runApp(MyApp());

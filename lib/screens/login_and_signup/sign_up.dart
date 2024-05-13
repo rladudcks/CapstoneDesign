@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tennis_login/screens/login_and_signup/user_sign_up.dart';
+import 'package:tennis_jamiss/screens/login_and_signup/user_sign_up.dart';
 
 class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
