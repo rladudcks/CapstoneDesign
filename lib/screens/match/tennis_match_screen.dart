@@ -37,7 +37,7 @@ class _TennisMatchScreenState extends State<TennisMatchScreen> {
         title: Text('앱바 영역'),
         actions: [
           IconButton(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.menu_open_sharp),
             onPressed: () {
               Navigator.push(
                 context,
