@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:mongo_dart/mongo_dart.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:kakao_map_plugin/kakao_map_plugin.dart';
+import 'package:tennis_jamiss/screens/business_user/bus_main_screens.dart';
 import 'package:tennis_jamiss/screens/login_and_signup/LogIn.dart';
 import 'package:tennis_jamiss/theme.dart';
 
@@ -56,6 +57,14 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'TennisJamiss', theme: theme(), home: LogIn(key: UniqueKey()));
+        title: 'TennisJamiss', theme: theme(), home: LogIn(key: UniqueKey())
+
+        //사업자 화면 테스트
+        // home: BusMainScreens()
+
+        //관리자 화면 테스트
+        // home: LogIn(key: UniqueKey())
+
+        );
   }
 }

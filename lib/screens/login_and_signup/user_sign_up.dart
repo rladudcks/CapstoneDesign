@@ -476,6 +476,152 @@ class _FormWidgetState extends State<FormWidget> {
                     ),
                   ],
                 ),
+
+                SizedBox(height: 3),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(width: 38),
+                    Container(
+                      width: 175,
+                      height: 30,
+                      decoration: ShapeDecoration(
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(width: 1, color: Color(0xFFD3D3D3)),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
+                      child: TextFormField(
+                        style: TextStyle(
+                          color: Color(0xFF919191),
+                          fontSize: 8,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w400,
+                          height: 1.0,
+                          letterSpacing: -0.08,
+                        ),
+                        textAlignVertical: TextAlignVertical(y: 1.0),
+                        // 포커스를 받았을 때 상태 업데이트
+                        onTap: () {
+                          setState(() {
+                            _isFocused = true;
+                          });
+                        },
+                        // 포커스를 잃었을 때 상태 업데이트
+                        onFieldSubmitted: (value) {
+                          setState(() {
+                            _isFocused = false;
+                          });
+                        },
+                        controller: TextEditingController(text: name),
+                        //이름 형식 검사 (추가 필요)
+                        onSaved: (value) => name = value!,
+                        onChanged: (value) {
+                          name = value;
+                        },
+                        decoration: InputDecoration(
+                            hintText: '이름을 입력해주세요',
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                                borderSide: BorderSide(color: Colors.grey)),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                                borderSide:
+                                    BorderSide(color: Color(0xFF464EFF))),
+                            errorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                                borderSide: BorderSide(color: Colors.red)),
+                            focusedErrorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                                borderSide: BorderSide(color: Colors.red))),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Container(
+                      width: 125,
+                      height: 30,
+                      decoration: ShapeDecoration(
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(width: 1, color: Color(0xFFD3D3D3)),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
+                      child: ListTile(
+                        dense: true,
+                        visualDensity: VisualDensity(vertical: -4),
+                        leading: Icon(
+                          Icons.calendar_today,
+                          size: 15,
+                        ),
+                        title: Text(
+                          DateFormat(
+                            'yyyy.MM.dd',
+                          ).format(user_birthdate),
+                          style: TextStyle(
+                            color: Color(0xFF919191),
+                            fontSize: 8,
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w400,
+                            height: 1.0,
+                            letterSpacing: -0.08,
+                          ),
+                        ),
+                        onTap: () async {
+                          final DateTime? picked = await showDatePicker(
+                            context: context,
+                            initialDate: user_birthdate,
+                            firstDate: DateTime(1900),
+                            lastDate: DateTime.now(),
+                          );
+                          if (picked != null && picked != user_birthdate) {
+                            setState(() {
+                              user_birthdate = picked;
+                              age = calculateAge(picked);
+                            });
+                          }
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+
+                SizedBox(height: 23),
+                // 성별 NTRP
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(left: 39),
+                      child: Text(
+                        textAlign: TextAlign.start,
+                        '성별',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 10,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w600,
+                          height: 1.0,
+                          letterSpacing: -0.10,
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 164),
+                    // 임시방면, 화면에 최적화된 방법 찾아야 함
+                    Text(
+                      textAlign: TextAlign.start,
+                      'NTRP',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 10,
+                        fontFamily: 'Pretendard',
+                        fontWeight: FontWeight.w600,
+                        height: 1.0,
+                        letterSpacing: -0.10,
+                      ),
+                    ),
+                  ],
+                ),
+
                 SizedBox(height: 3),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
