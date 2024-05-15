@@ -34,6 +34,9 @@ doc/api/
 # dotenv environment variables file
 .env
 
+# API key files
+lib/const/server_url.dart
+
 ### Flutter ###
 # Flutter/Dart/Pub related
 **/doc/api/
