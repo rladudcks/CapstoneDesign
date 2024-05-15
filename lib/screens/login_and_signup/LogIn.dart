@@ -52,7 +52,7 @@ class _LogInState extends State<LogIn> {
         //     height: 165
         //   ),
         SvgPicture.asset(
-          'images/tennis.logo.svg',
+          'assets/images/tennis.logo.svg',
           width: 100,
           height: 100,
         ),

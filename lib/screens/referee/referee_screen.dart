@@ -1,11 +1,11 @@
 import 'dart:io';
-import 'package:flutter/services.dart';
-import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:path/path.dart' show join;
 
-class RefereeScreen extends StatefulWidget  {
+import 'package:tennis_jamiss/screens/referee/ready_referee_screen.dart';
+
+class RefereeScreen extends StatefulWidget {
   final CameraDescription camera;
 
   const RefereeScreen({Key? key, required this.camera}) : super(key: key);
@@ -14,10 +14,9 @@ class RefereeScreen extends StatefulWidget  {
   RefereeScreenState createState() => RefereeScreenState();
 }
 
-class RefereeScreenState extends State<RefereeScreen> with WidgetsBindingObserver {
+class RefereeScreenState extends State<RefereeScreen> {
   late List<CameraDescription> _cameras;
   late CameraController _controller;
-  bool _isRecording = false;
 
   @override
   void initState() {
@@ -25,141 +24,73 @@ class RefereeScreenState extends State<RefereeScreen> with WidgetsBindingObserve
     _initializeCamera();
   }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
   Future<void> _initializeCamera() async {
     _cameras = await availableCameras();
-    _controller = CameraController(_cameras[0], ResolutionPreset.medium);
+    _controller = CameraController(widget.camera, ResolutionPreset.medium);
     await _controller.initialize();
-  }
-
-  Future<void> _startVideoRecording() async {
-    if (!_isRecording) {
-      final Directory appDirectory = await getApplicationDocumentsDirectory();
-      final String videoDirectory = '${appDirectory.path}/Videos';
-      await Directory(videoDirectory).create(recursive: true);
-      final String currentTime =
-          DateTime.now().millisecondsSinceEpoch.toString();
-      final String filePath = '$videoDirectory/$currentTime.mp4';
-      // Todo : filePath 작성
-
-      setState(() {
-        _isRecording = true;
-      });
-    }
-  }
-
-  Future<void> _stopVideoRecording() async {
-    if (_isRecording) {
-      await _controller.stopVideoRecording();
-      setState(() {
-        _isRecording = false;
-      });
-    }
   }
 
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
-    return Scaffold(
-      body: RotatedBox(
-        quarterTurns: 1,
-        child: Stack(
-          children: [
-            _controller.value.isInitialized
-                ? FittedBox(
-                  fit: BoxFit.cover,
-                  child: SizedBox(
-                    width: screenSize.height,
-                    height: screenSize.width,
-                    child: CameraPreview(_controller),
-                  ),
-            )
-                : Container(),
-            // 상단바 디자인
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: Container(
-                height: 60,
-                color: Colors.black,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    // 점수
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        '2:0',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                        ),
-                      ),
-                    ),
-                    // 진행 상황 및 녹화 시간
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          '진행 상황',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          '13:30:31',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
-                    ),
-                    // 메뉴 바
-                    IconButton(
-                      icon: Icon(
-                        Icons.menu,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {
-                        // 메뉴 바 동작 처리
-                      },
-                    ),
-                  ],
+        return Center(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Icon(
+                  Icons.videocam_outlined,
+                  size: 100,
+                  color: Colors.black,
                 ),
-              ),
-            ),
-            // 하단 버튼
-            Center(
-              child: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _isRecording = !_isRecording;
-                  });
-                  // 재생/일시정지 버튼 동작 처리
-                },
-                child: Container(
-                  width: 40,
-                  height: 40,
-                  child: Icon(
-                    _isRecording ? Icons.pause : Icons.play_arrow,
+                Text(
+                  textAlign: TextAlign.center,
+                  "무인심판을\n시작합니다",
+                  style: TextStyle(
                     color: Colors.black,
-                    size: 24,
+                    fontSize: 26,
+                    fontFamily: 'Pretendard',
+                    fontWeight: FontWeight.w600,
+                    height: 0,
+                    letterSpacing: -0.26,
                   ),
                 ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+                SizedBox(
+                  height: 3,
+                ),
+                Text("스마트폰을 가로로 거치해주세요!",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w400,
+                      height: 0,
+                      letterSpacing: -0.14,
+                    )),
+                SizedBox(height: 10),
+                ElevatedButton(
+                  child: Text(
+                    '시작하기',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: -0.20,
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ReadyToRefereeScreen(camera: _cameras.first,)));
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      minimumSize: Size(200, 50),
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(width: 1, color: Colors.black),
+                          borderRadius: BorderRadius.circular(10))),
+                ),
+              ]),
+        );
   }
 }
