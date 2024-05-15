@@ -26,6 +26,272 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    //addDateTimeField();
+  }
+  // date 추가 위젯
+  List<Widget> dateWidgets = [];
+  void addDateTimeField(){
+    setState(() {
+      dateWidgets.add(
+        Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+          child: Container(
+            child: Align(
+              alignment: AlignmentDirectional(0, 0),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  InkWell(
+                    child: ListView(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      children: [
+                        Padding(
+                          padding:
+                          EdgeInsetsDirectional.fromSTEB(
+                              20, 10, 20, 0),
+                          child: Row(
+                            children: [
+                              // 예약 일자
+                              Padding(
+                                padding: EdgeInsetsDirectional
+                                    .fromSTEB(0, 0, 0, 0),
+                                child: InkWell(
+                                  child: Container(
+                                    width: 105,
+                                    height: 25,
+                                    padding:
+                                    EdgeInsets.symmetric(
+                                        horizontal: 8,
+                                        vertical: 4),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: Colors.grey,
+                                          width: 1),
+                                      borderRadius:
+                                      BorderRadius
+                                          .circular(5),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment
+                                          .start,
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment
+                                          .center,
+                                      children: <Widget>[
+                                        Icon(
+                                            Icons
+                                                .calendar_today,
+                                            size: 15),
+                                        SizedBox(width: 16),
+                                        Flexible(
+                                          child: Text(
+                                            Reserved_Date != null
+                                                ? DateFormat(
+                                                'yyyy-MM-dd')
+                                                .format(
+                                                Reserved_Date!)
+                                                : '날짜',
+                                            style: TextStyle(
+                                              color: Color(
+                                                  0xFF919191),
+                                              fontSize: 8,
+                                              fontFamily:
+                                              'Pretendard',
+                                              fontWeight:
+                                              FontWeight
+                                                  .w400,
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  onTap: () async {
+                                    final DateTime? picked =
+                                    await showDatePicker(
+                                      context: context,
+                                      initialDate:
+                                      DateTime.now(),
+                                      firstDate:
+                                      DateTime.now(),
+                                      lastDate:
+                                      DateTime(2025),
+                                    );
+                                    if (picked != null &&
+                                        picked !=
+                                            Reserved_Date) {
+                                      setState(() {
+                                        Reserved_Date =
+                                            picked;
+                                      });
+                                    }
+                                  },
+                                ),
+                              ),
+                              // 예약 시작 시간
+                              Padding(
+                                padding: EdgeInsetsDirectional
+                                    .fromSTEB(10, 0, 10, 0),
+                                child: InkWell(
+                                  child: Container(
+                                    width: 85,
+                                    height: 25,
+                                    padding:
+                                    EdgeInsets.symmetric(
+                                        horizontal: 8,
+                                        vertical: 4),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: Colors.grey,
+                                          width: 1),
+                                      borderRadius:
+                                      BorderRadius
+                                          .circular(5),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment
+                                          .start,
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment
+                                          .center,
+                                      children: <Widget>[
+                                        Icon(Icons.alarm,
+                                            size: 15),
+                                        SizedBox(width: 16),
+                                        Flexible(
+                                          child: Text(
+                                            Start_Time != null
+                                                ? '시작 시간'
+                                                : '${Start_Time!.format(context)}',
+                                            style: TextStyle(
+                                              color: Color(
+                                                  0xFF919191),
+                                              fontSize: 8,
+                                              fontFamily:
+                                              'Pretendard',
+                                              fontWeight:
+                                              FontWeight
+                                                  .w400,
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  onTap: () async {
+                                    final TimeOfDay? picked =
+                                    await showTimePicker(
+                                      context: context,
+                                      initialTime:
+                                      Start_Time ??
+                                          TimeOfDay.now(),
+                                    );
+                                    if (picked != null &&
+                                        picked !=
+                                            Start_Time) {
+                                      setState(() {
+                                        Start_Time = picked;
+                                      });
+                                    }
+                                  },
+                                ),
+                              ),
+                              Text(
+                                '~',
+                                style: TextStyle(
+                                  color: Color(0xFF4E4E4E),
+                                  fontSize: 10,
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.w500,
+                                  height: 0,
+                                  letterSpacing: -0.10,
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional
+                                    .fromSTEB(10, 0, 5, 0),
+                                child: InkWell(
+                                  child: Container(
+                                    width: 85,
+                                    height: 25,
+                                    padding:
+                                    EdgeInsets.symmetric(
+                                        horizontal: 8,
+                                        vertical: 4),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: Colors.grey,
+                                          width: 1),
+                                      borderRadius:
+                                      BorderRadius
+                                          .circular(5),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment
+                                          .start,
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment
+                                          .center,
+                                      children: <Widget>[
+                                        Icon(Icons.alarm,
+                                            size: 15),
+                                        SizedBox(width: 16),
+                                        Flexible(
+                                          child: Text(
+                                            End_Time != null
+                                                ? '종료 시간'
+                                                : '${End_Time!.format(context)}',
+                                            style: TextStyle(
+                                              color: Color(
+                                                  0xFF919191),
+                                              fontSize: 8,
+                                              fontFamily:
+                                              'Pretendard',
+                                              fontWeight:
+                                              FontWeight
+                                                  .w400,
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  onTap: () async {
+                                    final TimeOfDay? picked =
+                                    await showTimePicker(
+                                      context: context,
+                                      initialTime: End_Time ??
+                                          TimeOfDay.now(),
+                                    );
+                                    if (picked != null &&
+                                        picked != End_Time) {
+                                      setState(() {
+                                        End_Time = picked;
+                                      });
+                                    }
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    });
   }
 
   // 코트 선택 toggle button
@@ -39,9 +305,9 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
 
   // 저장할 변수들
   bool _isFocused = false;
-  DateTime? Reserved_Date;
-  TimeOfDay? Start_Time;
-  TimeOfDay? End_Time;
+  DateTime? Reserved_Date = DateTime.now();
+  TimeOfDay? Start_Time = TimeOfDay.now();
+  TimeOfDay? End_Time = TimeOfDay.now();
   String money = '';
   String message = '';
   double distance = 0;
@@ -260,7 +526,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                             SizedBox(width: 16),
                                             Flexible(
                                               child: Text(
-                                                Start_Time == null
+                                                Start_Time != null
                                                     ? '시작 시간'
                                                     : '${Start_Time!.format(context)}',
                                                 style: TextStyle(
@@ -326,7 +592,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                             SizedBox(width: 16),
                                             Flexible(
                                               child: Text(
-                                                Start_Time == null
+                                                Start_Time != null
                                                     ? '종료 시간'
                                                     : '${Start_Time!.format(context)}',
                                                 style: TextStyle(
@@ -851,7 +1117,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 0, 0, 10),
+                                        0, 0, 0, 0),
                                     child: Text('나의 위치',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
@@ -935,292 +1201,27 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width,
-                              height: MediaQuery.sizeOf(context).height * 0.13,
-                              child: Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          20, 0, 0, 0),
-                                      child: Text(
-                                        '희망 시간',
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 10,
-                                          fontFamily: 'Pretendard',
-                                          fontWeight: FontWeight.w600,
-                                          height: 1.0,
-                                          letterSpacing: -0.10,
-                                        ),
-                                      ),
-                                    ),
-                                    InkWell(
-                                      child: ListView(
-                                        padding: EdgeInsets.zero,
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                20, 10, 20, 0),
-                                            child: Row(
-                                              children: [
-                                                // 예약 일자
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 0, 0),
-                                                  child: InkWell(
-                                                    child: Container(
-                                                      width: 105,
-                                                      height: 25,
-                                                      padding:
-                                                      EdgeInsets.symmetric(
-                                                          horizontal: 8,
-                                                          vertical: 4),
-                                                      decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Colors.grey,
-                                                            width: 1),
-                                                        borderRadius:
-                                                        BorderRadius
-                                                            .circular(5),
-                                                      ),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .start,
-                                                        crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                        children: <Widget>[
-                                                          Icon(
-                                                              Icons
-                                                                  .calendar_today,
-                                                              size: 15),
-                                                          SizedBox(width: 16),
-                                                          Flexible(
-                                                            child: Text(
-                                                              Reserved_Date !=
-                                                                  null
-                                                                  ? DateFormat(
-                                                                  'yyyy-MM-dd')
-                                                                  .format(
-                                                                  Reserved_Date!)
-                                                                  : '날짜',
-                                                              style: TextStyle(
-                                                                color: Color(
-                                                                    0xFF919191),
-                                                                fontSize: 8,
-                                                                fontFamily:
-                                                                'Pretendard',
-                                                                fontWeight:
-                                                                FontWeight
-                                                                    .w400,
-                                                              ),
-                                                            ),
-                                                          )
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    onTap: () async {
-                                                      final DateTime? picked =
-                                                      await showDatePicker(
-                                                        context: context,
-                                                        initialDate:
-                                                        DateTime.now(),
-                                                        firstDate:
-                                                        DateTime.now(),
-                                                        lastDate:
-                                                        DateTime(2025),
-                                                      );
-                                                      if (picked != null &&
-                                                          picked !=
-                                                              Reserved_Date) {
-                                                        setState(() {
-                                                          Reserved_Date =
-                                                              picked;
-                                                        });
-                                                      }
-                                                    },
-                                                  ),
-                                                ),
-                                                // 예약 시작 시간
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(10, 0, 10, 0),
-                                                  child: InkWell(
-                                                    child: Container(
-                                                      width: 85,
-                                                      height: 25,
-                                                      padding:
-                                                      EdgeInsets.symmetric(
-                                                          horizontal: 8,
-                                                          vertical: 4),
-                                                      decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Colors.grey,
-                                                            width: 1),
-                                                        borderRadius:
-                                                        BorderRadius
-                                                            .circular(5),
-                                                      ),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .start,
-                                                        crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                        children: <Widget>[
-                                                          Icon(Icons.alarm,
-                                                              size: 15),
-                                                          SizedBox(width: 16),
-                                                          Flexible(
-                                                            child: Text(
-                                                              Start_Time == null
-                                                                  ? '시작 시간'
-                                                                  : '${Start_Time!.format(context)}',
-                                                              style: TextStyle(
-                                                                color: Color(
-                                                                    0xFF919191),
-                                                                fontSize: 8,
-                                                                fontFamily:
-                                                                'Pretendard',
-                                                                fontWeight:
-                                                                FontWeight
-                                                                    .w400,
-                                                              ),
-                                                            ),
-                                                          )
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    onTap: () async {
-                                                      final TimeOfDay? picked =
-                                                      await showTimePicker(
-                                                        context: context,
-                                                        initialTime:
-                                                        Start_Time ??
-                                                            TimeOfDay.now(),
-                                                      );
-                                                      if (picked != null &&
-                                                          picked !=
-                                                              Start_Time) {
-                                                        setState(() {
-                                                          Start_Time = picked;
-                                                        });
-                                                      }
-                                                    },
-                                                  ),
-                                                ),
-                                                Text(
-                                                  '~',
-                                                  style: TextStyle(
-                                                    color: Color(0xFF4E4E4E),
-                                                    fontSize: 10,
-                                                    fontFamily: 'Roboto',
-                                                    fontWeight: FontWeight.w500,
-                                                    height: 0,
-                                                    letterSpacing: -0.10,
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(10, 0, 5, 0),
-                                                  child: InkWell(
-                                                    child: Container(
-                                                      width: 85,
-                                                      height: 25,
-                                                      padding:
-                                                      EdgeInsets.symmetric(
-                                                          horizontal: 8,
-                                                          vertical: 4),
-                                                      decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Colors.grey,
-                                                            width: 1),
-                                                        borderRadius:
-                                                        BorderRadius
-                                                            .circular(5),
-                                                      ),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .start,
-                                                        crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                        children: <Widget>[
-                                                          Icon(Icons.alarm,
-                                                              size: 15),
-                                                          SizedBox(width: 16),
-                                                          Flexible(
-                                                            child: Text(
-                                                              Start_Time == null
-                                                                  ? '종료 시간'
-                                                                  : '${Start_Time!.format(context)}',
-                                                              style: TextStyle(
-                                                                color: Color(
-                                                                    0xFF919191),
-                                                                fontSize: 8,
-                                                                fontFamily:
-                                                                'Pretendard',
-                                                                fontWeight:
-                                                                FontWeight
-                                                                    .w400,
-                                                              ),
-                                                            ),
-                                                          )
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    onTap: () async {
-                                                      final TimeOfDay? picked =
-                                                      await showTimePicker(
-                                                        context: context,
-                                                        initialTime: End_Time ??
-                                                            TimeOfDay.now(),
-                                                      );
-                                                      if (picked != null &&
-                                                          picked != End_Time) {
-                                                        setState(() {
-                                                          End_Time = picked;
-                                                        });
-                                                      }
-                                                    },
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment: AlignmentDirectional(0, 0),
-                                      child: IconButton(
-                                        color: Color(0xFF9296FF),
-                                        icon: Icon(
-                                          Icons.add,
-                                          color: Colors.white,
-                                          size: 16,
-                                        ),
-                                        onPressed: () {},
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20, 0, 0, 0),
+                            child: Text(
+                              '희망 시간',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 10,
+                                fontFamily: 'Pretendard',
+                                fontWeight: FontWeight.w600,
+                                height: 1.0,
+                                letterSpacing: -0.10,
                               ),
                             ),
                           ),
+
+                          Center (
+                            child: IconButton(
+                                icon: Icon(Icons.add),
+                                onPressed: () {  },
+                              )
+                            ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 3),
                             child: Container(

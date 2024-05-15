@@ -4,7 +4,10 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:kakao_map_plugin/kakao_map_plugin.dart';
 import 'package:tennis_jamiss/screens/business_user/bus_main_screens.dart';
 import 'package:tennis_jamiss/screens/login_and_signup/LogIn.dart';
+import 'package:tennis_jamiss/screens/referee/referee_screen.dart';
 import 'package:tennis_jamiss/theme.dart';
+import 'package:camera/camera.dart';
+
 
 // void main() {
 //   runApp(MyApp());
@@ -23,9 +26,16 @@ import 'package:tennis_jamiss/theme.dart';
 //     );
 //   }
 // }
+List<CameraDescription> cameras = [];
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // 사용 가능한 카메라 목록을 가져옵니다.
+  cameras = await availableCameras();
+
+  // 첫 번째 카메라를 기본 카메라로 선택합니다.
+  CameraDescription firstCamera = cameras.first;
 
   await dotenv.load(fileName: 'assets/env/.env');
 
@@ -49,6 +59,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
   @override
   void initState() {
     super.initState();

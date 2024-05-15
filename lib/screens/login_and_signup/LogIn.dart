@@ -42,7 +42,7 @@ class _LogInState extends State<LogIn> {
         body: Center(
             child: SingleChildScrollView(
                 child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         // 테니스 재미쓰 로고

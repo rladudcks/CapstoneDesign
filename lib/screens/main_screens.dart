@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
+import 'package:tennis_jamiss/main.dart';
 import 'package:tennis_jamiss/screens/chatting/chatting_screen.dart';
 import 'package:tennis_jamiss/screens/club/club_screen.dart';
 import 'package:tennis_jamiss/screens/match/tennis_match_screen.dart';
@@ -21,7 +23,7 @@ class _MainScreensState extends State<MainScreens> {
         index: _selectedIndex,
         children: [
           TennisMatchScreen(),
-          RefereeScreen(),
+          RefereeScreen(camera: cameras.first,),
           ChattingScreen(),
           ClubScreen(),
           MyPageScreen(),
