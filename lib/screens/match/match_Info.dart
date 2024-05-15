@@ -94,7 +94,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                           children: [
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(20, 0, 0, 10),
+                              EdgeInsetsDirectional.fromSTEB(20, 0, 0, 10),
                               child: Text(
                                 '예약 코트',
                                 textAlign: TextAlign.center,
@@ -119,7 +119,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                               width: 1,
                                               color: Color(0xFF464EFF)),
                                           borderRadius:
-                                              BorderRadius.circular(20))),
+                                          BorderRadius.circular(20))),
                                   onPressed: () {
                                     // Todo : 등록화면 만들기
                                     Navigator.push(
@@ -157,7 +157,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                           children: [
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                              EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                               child: Text(
                                 '예약 시간',
                                 style: TextStyle(
@@ -172,13 +172,13 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                             ),
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                              EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                               child: Row(
                                 children: [
                                   // 예약 일자
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10, 0, 10, 0),
+                                        0, 0, 0, 0),
                                     child: InkWell(
                                       child: Container(
                                         width: 105,
@@ -189,13 +189,13 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                           border: Border.all(
                                               color: Colors.grey, width: 1),
                                           borderRadius:
-                                              BorderRadius.circular(5),
+                                          BorderRadius.circular(5),
                                         ),
                                         child: Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.start,
+                                          MainAxisAlignment.start,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.center,
+                                          CrossAxisAlignment.center,
                                           children: <Widget>[
                                             Icon(Icons.calendar_today,
                                                 size: 15),
@@ -204,7 +204,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                               child: Text(
                                                 Reserved_Date != null
                                                     ? DateFormat('yyyy-MM-dd')
-                                                        .format(Reserved_Date!)
+                                                    .format(Reserved_Date!)
                                                     : '날짜',
                                                 style: TextStyle(
                                                   color: Color(0xFF919191),
@@ -219,7 +219,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                       ),
                                       onTap: () async {
                                         final DateTime? picked =
-                                            await showDatePicker(
+                                        await showDatePicker(
                                           context: context,
                                           initialDate: DateTime.now(),
                                           firstDate: DateTime.now(),
@@ -248,13 +248,13 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                           border: Border.all(
                                               color: Colors.grey, width: 1),
                                           borderRadius:
-                                              BorderRadius.circular(5),
+                                          BorderRadius.circular(5),
                                         ),
                                         child: Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.start,
+                                          MainAxisAlignment.start,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.center,
+                                          CrossAxisAlignment.center,
                                           children: <Widget>[
                                             Icon(Icons.alarm, size: 15),
                                             SizedBox(width: 16),
@@ -276,10 +276,10 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                       ),
                                       onTap: () async {
                                         final TimeOfDay? picked =
-                                            await showTimePicker(
+                                        await showTimePicker(
                                           context: context,
                                           initialTime:
-                                              Start_Time ?? TimeOfDay.now(),
+                                          Start_Time ?? TimeOfDay.now(),
                                         );
                                         if (picked != null &&
                                             picked != Start_Time) {
@@ -303,7 +303,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10, 0, 10, 0),
+                                        10, 0, 5, 0),
                                     child: InkWell(
                                       child: Container(
                                         width: 85,
@@ -314,13 +314,13 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                           border: Border.all(
                                               color: Colors.grey, width: 1),
                                           borderRadius:
-                                              BorderRadius.circular(5),
+                                          BorderRadius.circular(5),
                                         ),
                                         child: Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.start,
+                                          MainAxisAlignment.start,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.center,
+                                          CrossAxisAlignment.center,
                                           children: <Widget>[
                                             Icon(Icons.alarm, size: 15),
                                             SizedBox(width: 16),
@@ -342,10 +342,10 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                       ),
                                       onTap: () async {
                                         final TimeOfDay? picked =
-                                            await showTimePicker(
+                                        await showTimePicker(
                                           context: context,
                                           initialTime:
-                                              End_Time ?? TimeOfDay.now(),
+                                          End_Time ?? TimeOfDay.now(),
                                         );
                                         if (picked != null &&
                                             picked != End_Time) {
@@ -375,7 +375,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                             children: [
                               Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
                                 child: Text(
                                   '코트 대여 비용',
                                   style: TextStyle(
@@ -405,7 +405,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                           letterSpacing: -0.10,
                                         ),
                                         textAlignVertical:
-                                            TextAlignVertical(y: 1.0),
+                                        TextAlignVertical(y: 1.0),
                                         onTap: () {
                                           // 포커스를 받았을 때 상태 업데이트
                                           setState(() {
@@ -419,13 +419,13 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                           });
                                         },
                                         controller:
-                                            TextEditingController(text: money),
+                                        TextEditingController(text: money),
                                         onChanged: (value) {
                                           double.parse(money);
                                           money = value;
                                         },
                                         decoration: InputDecoration(
-                                            // 입력창 배경은 회색, 선택할 때 흰색
+                                          // 입력창 배경은 회색, 선택할 때 흰색
                                             filled: true,
                                             fillColor: _isFocused
                                                 ? Colors.white
@@ -433,32 +433,32 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                             hintText: '전체 금액',
                                             enabledBorder: OutlineInputBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(20),
+                                                BorderRadius.circular(20),
                                                 borderSide: BorderSide(
                                                     color: Color(0xFFD3D3D3))),
                                             focusedBorder: OutlineInputBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(20),
+                                                BorderRadius.circular(20),
                                                 borderSide: BorderSide(
                                                     color: Colors.black)),
                                             errorBorder: OutlineInputBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(20),
+                                                BorderRadius.circular(20),
                                                 borderSide: BorderSide(
                                                     color: Colors.red)),
                                             focusedErrorBorder:
-                                                OutlineInputBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            20),
-                                                    borderSide: BorderSide(
-                                                        color: Colors.red))),
+                                            OutlineInputBorder(
+                                                borderRadius:
+                                                BorderRadius.circular(
+                                                    20),
+                                                borderSide: BorderSide(
+                                                    color: Colors.red))),
                                       )),
                                 ),
                               ),
                               Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
                                 child: Text(
                                   '원',
                                   style: TextStyle(
@@ -484,7 +484,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                         child: Row(children: [
                           Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                            EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                             child: Text(
                               '경기 코트',
                               style: TextStyle(
@@ -509,7 +509,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                               children: [
                                 Padding(
                                     padding:
-                                        EdgeInsets.symmetric(horizontal: 16),
+                                    EdgeInsets.symmetric(horizontal: 16),
                                     child: Text('하드코트',
                                         style: TextStyle(
                                           fontSize: 10,
@@ -519,7 +519,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                         ))),
                                 Padding(
                                     padding:
-                                        EdgeInsets.symmetric(horizontal: 16),
+                                    EdgeInsets.symmetric(horizontal: 16),
                                     child: Text('플레이코트',
                                         style: TextStyle(
                                           fontSize: 10,
@@ -529,7 +529,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                         ))),
                                 Padding(
                                     padding:
-                                        EdgeInsets.symmetric(horizontal: 16),
+                                    EdgeInsets.symmetric(horizontal: 16),
                                     child: Text('잔디코트',
                                         style: TextStyle(
                                           fontSize: 10,
@@ -546,8 +546,8 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                               onPressed: (index) {
                                 setState(() {
                                   for (int buttonIndex = 0;
-                                      buttonIndex < CourtSelected.length;
-                                      buttonIndex++) {
+                                  buttonIndex < CourtSelected.length;
+                                  buttonIndex++) {
                                     if (buttonIndex == index) {
                                       CourtSelected[buttonIndex] = true;
                                     } else {
@@ -571,7 +571,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                           children: [
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                              EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                               child: Text(
                                 '경기 유형',
                                 style: TextStyle(
@@ -594,7 +594,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                 children: [
                                   Padding(
                                       padding:
-                                          EdgeInsets.symmetric(horizontal: 16),
+                                      EdgeInsets.symmetric(horizontal: 16),
                                       child: Text('단식',
                                           style: TextStyle(
                                             fontSize: 10,
@@ -604,7 +604,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                           ))),
                                   Padding(
                                       padding:
-                                          EdgeInsets.symmetric(horizontal: 16),
+                                      EdgeInsets.symmetric(horizontal: 16),
                                       child: Text('복식',
                                           style: TextStyle(
                                             fontSize: 10,
@@ -645,7 +645,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                           children: [
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                              EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                               child: Text(
                                 '경기 목적',
                                 style: TextStyle(
@@ -668,7 +668,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                 children: [
                                   Padding(
                                       padding:
-                                          EdgeInsets.symmetric(horizontal: 16),
+                                      EdgeInsets.symmetric(horizontal: 16),
                                       child: Text('부담없이',
                                           style: TextStyle(
                                             fontSize: 10,
@@ -678,7 +678,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                           ))),
                                   Padding(
                                       padding:
-                                          EdgeInsets.symmetric(horizontal: 16),
+                                      EdgeInsets.symmetric(horizontal: 16),
                                       child: Text('진지하게',
                                           style: TextStyle(
                                             fontSize: 10,
@@ -721,7 +721,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                           children: [
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(20, 0, 0, 10),
+                              EdgeInsetsDirectional.fromSTEB(20, 0, 0, 10),
                               child: Text(
                                 '한 줄 메세지',
                                 textAlign: TextAlign.center,
@@ -737,7 +737,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                             ),
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(20, 0, 0, 3),
+                              EdgeInsetsDirectional.fromSTEB(20, 0, 0, 3),
                               child: Container(
                                 width: 300,
                                 height: 30,
@@ -764,12 +764,12 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                     });
                                   },
                                   controller:
-                                      TextEditingController(text: message),
+                                  TextEditingController(text: message),
                                   onChanged: (value) {
                                     message = value;
                                   },
                                   decoration: InputDecoration(
-                                      // 입력창 배경은 회색, 선택할 때 흰색
+                                    // 입력창 배경은 회색, 선택할 때 흰색
                                       filled: true,
                                       fillColor: _isFocused
                                           ? Colors.white
@@ -777,24 +777,24 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                       hintText: '상대 플레이어에게 보여주는 멋진 소개글을 적어주세요!',
                                       enabledBorder: OutlineInputBorder(
                                           borderRadius:
-                                              BorderRadius.circular(5),
+                                          BorderRadius.circular(5),
                                           borderSide: BorderSide(
                                               color: Color(0xFFEDEDED))),
                                       focusedBorder: OutlineInputBorder(
                                           borderRadius:
-                                              BorderRadius.circular(5),
+                                          BorderRadius.circular(5),
                                           borderSide:
-                                              BorderSide(color: Colors.black)),
+                                          BorderSide(color: Colors.black)),
                                       errorBorder: OutlineInputBorder(
                                           borderRadius:
-                                              BorderRadius.circular(5),
+                                          BorderRadius.circular(5),
                                           borderSide:
-                                              BorderSide(color: Colors.red)),
+                                          BorderSide(color: Colors.red)),
                                       focusedErrorBorder: OutlineInputBorder(
                                           borderRadius:
-                                              BorderRadius.circular(5),
+                                          BorderRadius.circular(5),
                                           borderSide:
-                                              BorderSide(color: Colors.red))),
+                                          BorderSide(color: Colors.red))),
                                 ),
                               ),
                             ),
@@ -835,9 +835,12 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                     SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 3),
+                            padding:
+                            EdgeInsetsDirectional.fromSTEB(20, 0, 20, 10),
                             child: Container(
                               width: MediaQuery.sizeOf(context).width,
                               height: MediaQuery.sizeOf(context).height * 0.13,
@@ -848,7 +851,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 0, 0, 0),
+                                        20, 0, 0, 10),
                                     child: Text('나의 위치',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
@@ -861,44 +864,47 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                         )),
                                   ),
                                   Container(
-                                    height: 30,
-                                    width: 315,
-                                    child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                            backgroundColor: Color(0xFF464EFF),
-                                            shape: RoundedRectangleBorder(
-                                                side: BorderSide(
-                                                    width: 1,
-                                                    color: Color(0xFF464EFF)),
-                                                borderRadius:
-                                                    BorderRadius.circular(20))),
-                                        onPressed: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    LocationMap()),
-                                          );
-                                        },
-                                        child: Row(children: [
-                                          Icon(
-                                            Icons.gps_fixed,
-                                            color: Colors.white,
-                                            size: 20,
-                                          ),
-                                          Text(
-                                            '내 동네 인증하기',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
+                                    child: Center(
+                                      child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                              minimumSize: Size(315, 30),
+                                              backgroundColor:
+                                              Color(0xFF464EFF),
+                                              shape: RoundedRectangleBorder(
+                                                  side: BorderSide(
+                                                      width: 1,
+                                                      color: Color(0xFF464EFF)),
+                                                  borderRadius:
+                                                  BorderRadius.circular(
+                                                      20))),
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      LocationMap()),
+                                            );
+                                          },
+                                          child: Row(children: [
+                                            Icon(
+                                              Icons.gps_fixed,
                                               color: Colors.white,
-                                              fontSize: 10,
-                                              fontFamily: 'Pretendard',
-                                              fontWeight: FontWeight.w700,
-                                              height: 0,
-                                              letterSpacing: -0.10,
+                                              size: 20,
                                             ),
-                                          ),
-                                        ])),
+                                            Text(
+                                              '내 동네 인증하기',
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 10,
+                                                fontFamily: 'Pretendard',
+                                                fontWeight: FontWeight.w700,
+                                                height: 0,
+                                                letterSpacing: -0.10,
+                                              ),
+                                            ),
+                                          ])),
+                                    ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -929,7 +935,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 3),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                             child: Container(
                               width: MediaQuery.sizeOf(context).width,
                               height: MediaQuery.sizeOf(context).height * 0.13,
@@ -963,119 +969,156 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    20, 10, 20, 10),
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                20, 10, 20, 0),
                                             child: Row(
-                                              mainAxisSize: MainAxisSize.max,
                                               children: [
+                                                // 예약 일자
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 10, 0),
-                                                  child: Container(
-                                                    width: 100,
-                                                    height: 25,
-                                                    decoration: ShapeDecoration(
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        side: BorderSide(
-                                                            width: 1,
-                                                            color: Color(
-                                                                0xFFD3D3D3)),
+                                                      .fromSTEB(0, 0, 0, 0),
+                                                  child: InkWell(
+                                                    child: Container(
+                                                      width: 105,
+                                                      height: 25,
+                                                      padding:
+                                                      EdgeInsets.symmetric(
+                                                          horizontal: 8,
+                                                          vertical: 4),
+                                                      decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                            color: Colors.grey,
+                                                            width: 1),
                                                         borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
+                                                        BorderRadius
+                                                            .circular(5),
+                                                      ),
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .start,
+                                                        crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                        children: <Widget>[
+                                                          Icon(
+                                                              Icons
+                                                                  .calendar_today,
+                                                              size: 15),
+                                                          SizedBox(width: 16),
+                                                          Flexible(
+                                                            child: Text(
+                                                              Reserved_Date !=
+                                                                  null
+                                                                  ? DateFormat(
+                                                                  'yyyy-MM-dd')
+                                                                  .format(
+                                                                  Reserved_Date!)
+                                                                  : '날짜',
+                                                              style: TextStyle(
+                                                                color: Color(
+                                                                    0xFF919191),
+                                                                fontSize: 8,
+                                                                fontFamily:
+                                                                'Pretendard',
+                                                                fontWeight:
+                                                                FontWeight
+                                                                    .w400,
+                                                              ),
+                                                            ),
+                                                          )
+                                                        ],
                                                       ),
                                                     ),
-                                                    child: ListTile(
-                                                      dense: true,
-                                                      visualDensity:
-                                                          VisualDensity(
-                                                              vertical: -4),
-                                                      leading: Icon(
-                                                        Icons.calendar_today,
-                                                        size: 15,
-                                                      ),
-                                                      title: Text(
-                                                        '날짜',
-                                                        style: TextStyle(
-                                                          color:
-                                                              Color(0xFF919191),
-                                                          fontSize: 8,
-                                                          fontFamily:
-                                                              'Pretendard',
-                                                          fontWeight:
-                                                              FontWeight.w400,
-                                                          letterSpacing: -0.08,
-                                                        ),
-                                                      ),
-                                                      onTap: () async {
-                                                        final DateTime? picked =
-                                                            await showDatePicker(
-                                                          context: context,
-                                                          initialDate:
-                                                              DateTime.now(),
-                                                          firstDate:
-                                                              DateTime(1900),
-                                                          lastDate:
-                                                              DateTime.now(),
-                                                        );
-                                                      },
-                                                    ),
+                                                    onTap: () async {
+                                                      final DateTime? picked =
+                                                      await showDatePicker(
+                                                        context: context,
+                                                        initialDate:
+                                                        DateTime.now(),
+                                                        firstDate:
+                                                        DateTime.now(),
+                                                        lastDate:
+                                                        DateTime(2025),
+                                                      );
+                                                      if (picked != null &&
+                                                          picked !=
+                                                              Reserved_Date) {
+                                                        setState(() {
+                                                          Reserved_Date =
+                                                              picked;
+                                                        });
+                                                      }
+                                                    },
                                                   ),
                                                 ),
+                                                // 예약 시작 시간
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 10, 0),
-                                                  child: Container(
-                                                    width: 100,
-                                                    height: 25,
-                                                    decoration: ShapeDecoration(
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        side: BorderSide(
-                                                            width: 1,
-                                                            color: Color(
-                                                                0xFFD3D3D3)),
+                                                      .fromSTEB(10, 0, 10, 0),
+                                                  child: InkWell(
+                                                    child: Container(
+                                                      width: 85,
+                                                      height: 25,
+                                                      padding:
+                                                      EdgeInsets.symmetric(
+                                                          horizontal: 8,
+                                                          vertical: 4),
+                                                      decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                            color: Colors.grey,
+                                                            width: 1),
                                                         borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
+                                                        BorderRadius
+                                                            .circular(5),
+                                                      ),
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .start,
+                                                        crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                        children: <Widget>[
+                                                          Icon(Icons.alarm,
+                                                              size: 15),
+                                                          SizedBox(width: 16),
+                                                          Flexible(
+                                                            child: Text(
+                                                              Start_Time == null
+                                                                  ? '시작 시간'
+                                                                  : '${Start_Time!.format(context)}',
+                                                              style: TextStyle(
+                                                                color: Color(
+                                                                    0xFF919191),
+                                                                fontSize: 8,
+                                                                fontFamily:
+                                                                'Pretendard',
+                                                                fontWeight:
+                                                                FontWeight
+                                                                    .w400,
+                                                              ),
+                                                            ),
+                                                          )
+                                                        ],
                                                       ),
                                                     ),
-                                                    child: ListTile(
-                                                      dense: true,
-                                                      visualDensity:
-                                                          VisualDensity(
-                                                              vertical: -4),
-                                                      leading: Icon(
-                                                        Icons.calendar_today,
-                                                        size: 15,
-                                                      ),
-                                                      title: Text(
-                                                        '날짜',
-                                                        style: TextStyle(
-                                                          color:
-                                                              Color(0xFF919191),
-                                                          fontSize: 8,
-                                                          fontFamily:
-                                                              'Pretendard',
-                                                          fontWeight:
-                                                              FontWeight.w400,
-                                                          letterSpacing: -0.08,
-                                                        ),
-                                                      ),
-                                                      onTap: () async {
-                                                        final DateTime? picked =
-                                                            await showDatePicker(
-                                                          context: context,
-                                                          initialDate:
-                                                              DateTime.now(),
-                                                          firstDate:
-                                                              DateTime(1900),
-                                                          lastDate:
-                                                              DateTime.now(),
-                                                        );
-                                                      },
-                                                    ),
+                                                    onTap: () async {
+                                                      final TimeOfDay? picked =
+                                                      await showTimePicker(
+                                                        context: context,
+                                                        initialTime:
+                                                        Start_Time ??
+                                                            TimeOfDay.now(),
+                                                      );
+                                                      if (picked != null &&
+                                                          picked !=
+                                                              Start_Time) {
+                                                        setState(() {
+                                                          Start_Time = picked;
+                                                        });
+                                                      }
+                                                    },
                                                   ),
                                                 ),
                                                 Text(
@@ -1091,63 +1134,73 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 10, 0),
-                                                  child: Container(
-                                                    width: 100,
-                                                    height: 25,
-                                                    decoration: ShapeDecoration(
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        side: BorderSide(
-                                                            width: 1,
-                                                            color: Color(
-                                                                0xFFD3D3D3)),
+                                                      .fromSTEB(10, 0, 5, 0),
+                                                  child: InkWell(
+                                                    child: Container(
+                                                      width: 85,
+                                                      height: 25,
+                                                      padding:
+                                                      EdgeInsets.symmetric(
+                                                          horizontal: 8,
+                                                          vertical: 4),
+                                                      decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                            color: Colors.grey,
+                                                            width: 1),
                                                         borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
+                                                        BorderRadius
+                                                            .circular(5),
+                                                      ),
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .start,
+                                                        crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                        children: <Widget>[
+                                                          Icon(Icons.alarm,
+                                                              size: 15),
+                                                          SizedBox(width: 16),
+                                                          Flexible(
+                                                            child: Text(
+                                                              Start_Time == null
+                                                                  ? '종료 시간'
+                                                                  : '${Start_Time!.format(context)}',
+                                                              style: TextStyle(
+                                                                color: Color(
+                                                                    0xFF919191),
+                                                                fontSize: 8,
+                                                                fontFamily:
+                                                                'Pretendard',
+                                                                fontWeight:
+                                                                FontWeight
+                                                                    .w400,
+                                                              ),
+                                                            ),
+                                                          )
+                                                        ],
                                                       ),
                                                     ),
-                                                    child: ListTile(
-                                                      dense: true,
-                                                      visualDensity:
-                                                          VisualDensity(
-                                                              vertical: -4),
-                                                      leading: Icon(
-                                                        Icons.calendar_today,
-                                                        size: 15,
-                                                      ),
-                                                      title: Text(
-                                                        '날짜',
-                                                        style: TextStyle(
-                                                          color:
-                                                              Color(0xFF919191),
-                                                          fontSize: 8,
-                                                          fontFamily:
-                                                              'Pretendard',
-                                                          fontWeight:
-                                                              FontWeight.w400,
-                                                          letterSpacing: -0.08,
-                                                        ),
-                                                      ),
-                                                      onTap: () async {
-                                                        final DateTime? picked =
-                                                            await showDatePicker(
-                                                          context: context,
-                                                          initialDate:
-                                                              DateTime.now(),
-                                                          firstDate:
-                                                              DateTime(1900),
-                                                          lastDate:
-                                                              DateTime.now(),
-                                                        );
-                                                      },
-                                                    ),
+                                                    onTap: () async {
+                                                      final TimeOfDay? picked =
+                                                      await showTimePicker(
+                                                        context: context,
+                                                        initialTime: End_Time ??
+                                                            TimeOfDay.now(),
+                                                      );
+                                                      if (picked != null &&
+                                                          picked != End_Time) {
+                                                        setState(() {
+                                                          End_Time = picked;
+                                                        });
+                                                      }
+                                                    },
                                                   ),
                                                 ),
-                                                // todo : 시작시간, 종료시간 list 만들기
                                               ],
                                             ),
-                                          ),
+                                          )
                                         ],
                                       ),
                                     ),
@@ -1347,7 +1400,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                       letterSpacing: -0.10,
                                     ),
                                     textAlignVertical:
-                                        TextAlignVertical(y: 1.0),
+                                    TextAlignVertical(y: 1.0),
                                     onTap: () {
                                       // 포커스를 받았을 때 상태 업데이트
                                       setState(() {
@@ -1361,38 +1414,38 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                       });
                                     },
                                     controller:
-                                        TextEditingController(text: message),
+                                    TextEditingController(text: message),
                                     onChanged: (value) {
                                       message = value;
                                     },
                                     decoration: InputDecoration(
-                                        // 입력창 배경은 회색, 선택할 때 흰색
+                                      // 입력창 배경은 회색, 선택할 때 흰색
                                         filled: true,
                                         fillColor: _isFocused
                                             ? Colors.white
                                             : Color(0xFFEDEDED),
                                         hintText:
-                                            '상대 플레이어에게 보여주는 멋진 소개글을 적어주세요!',
+                                        '상대 플레이어에게 보여주는 멋진 소개글을 적어주세요!',
                                         enabledBorder: OutlineInputBorder(
                                             borderRadius:
-                                                BorderRadius.circular(20),
+                                            BorderRadius.circular(20),
                                             borderSide: BorderSide(
                                                 color: Color(0xFFEDEDED))),
                                         focusedBorder: OutlineInputBorder(
                                             borderRadius:
-                                                BorderRadius.circular(20),
+                                            BorderRadius.circular(20),
                                             borderSide: BorderSide(
                                                 color: Colors.black)),
                                         errorBorder: OutlineInputBorder(
                                             borderRadius:
-                                                BorderRadius.circular(20),
+                                            BorderRadius.circular(20),
                                             borderSide:
-                                                BorderSide(color: Colors.red)),
+                                            BorderSide(color: Colors.red)),
                                         focusedErrorBorder: OutlineInputBorder(
                                             borderRadius:
-                                                BorderRadius.circular(20),
+                                            BorderRadius.circular(20),
                                             borderSide:
-                                                BorderSide(color: Colors.red))),
+                                            BorderSide(color: Colors.red))),
                                   ),
                                 ],
                               ),
