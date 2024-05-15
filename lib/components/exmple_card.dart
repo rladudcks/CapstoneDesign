@@ -32,10 +32,9 @@ class ExampleCard extends StatelessWidget {
           Flexible(
             child: Container(
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: candidate.color,
+                image: DecorationImage(
+                  image: candidate.image,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -45,8 +44,9 @@ class ExampleCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                //모든 정보들 하나씩 추가해야함
                 Text(
-                  candidate.name,
+                  candidate.courtName,
                   style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
@@ -55,15 +55,16 @@ class ExampleCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  candidate.job,
+                  '경기 유형 | ' + (candidate.isSingles ? '단식' : '복식'),
                   style: const TextStyle(
                     color: Colors.grey,
                     fontSize: 15,
                   ),
                 ),
+
                 const SizedBox(height: 5),
                 Text(
-                  candidate.city,
+                  'NTRP | ' + candidate.ntrp,
                   style: const TextStyle(color: Colors.grey),
                 ),
               ],
