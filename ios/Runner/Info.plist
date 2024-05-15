@@ -12,6 +12,16 @@
     <key>io.flutter.embedded_views_preview</key>
     <true/>
 
+	<!--location-->
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Used to Location&apos;s Info always for Using Beacon.</string>
+
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Used to Location&apos;s Info always for Using Beacon.</string>
+
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Used to Location&apos;s Info for Using Beacon when In Use.</string>
+
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>

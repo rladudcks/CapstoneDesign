@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:kakao_map_plugin/kakao_map_plugin.dart';
 
 // String selectedTitle = 'Location Map Test';
@@ -14,29 +15,61 @@ class LocationMap extends StatefulWidget {
 
 class _LocationMapState extends State<LocationMap> {
   late KakaoMapController mapController;
+  Set<Marker> markers = {}; // 마커 변수
+  Position? _currentPosition;
 
   // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     appBar: AppBar(
-  //       //title: Text(widget.title ?? selectedTitle),
-  //       title: Text('Location Map Test'),
-  //     ),
-  //     body: KakaoMap(
-  //       onMapTap: (latLng) {
-  //         debugPrint('***** [JHC_DEBUG] ${latLng.toString()}');
-  //       },
-  //     ),
-  //   );
+  // void initState() {
+  //   super.initState();
+  //   _getCurrentPosition(); // 초기 위치 정보 가져오기
   // }
 
-  Set<Marker> markers = {}; // 마커 변수
+  // Future<void> _getCurrentPosition() async {
+  //   try {
+  //     Position position = await Geolocator.getCurrentPosition(
+  //       desiredAccuracy: LocationAccuracy.high,
+  //     );
 
+  //     setState(() {
+  //       _currentPosition = position;
+  //       _addMarker(); // 마커 추가 함수 호출
+  //     });
+  //   } catch (e) {
+  //     print('Error getting location: $e');
+  //     // 에러 처리 (예: 사용자에게 에러 메시지 표시)
+  //   }
+  // }
+
+  // void _addMarker() {
+  //   markers.add(Marker(
+  //     markerId: UniqueKey().toString(),
+  //     latLng: LatLng(_currentPosition!.latitude, _currentPosition!.longitude),
+  //   ));
+  // }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('마커 표시하기'),
       ),
+      // body: KakaoMap(
+      //   onMapCreated: ((controller) {
+      //     mapController = controller;
+      //     // if (_currentPosition != null) {
+      //     //   _addMarker();
+      //     // }
+
+      //     // markers.add(Marker(
+      //     //   markerId: UniqueKey().toString(),
+      //     //   latLng: await mapController.getCenter(),
+      //     // )
+      //     );
+      //   }),
+      //   markers: markers.toList(),
+      //   center: LatLng(37.56682, 126.97865),
+
+      // ),
       body: KakaoMap(
         onMapCreated: ((controller) async {
           mapController = controller;
@@ -49,7 +82,7 @@ class _LocationMapState extends State<LocationMap> {
           setState(() {});
         }),
         markers: markers.toList(),
-        center: LatLng(37.3608681, 127.9306506),
+        center: LatLng(37.3608681, 126.9306506),
       ),
     );
   }
