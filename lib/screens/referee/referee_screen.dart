@@ -6,6 +6,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:tennis_jamiss/screens/referee/ready_referee_screen.dart';
 
 class RefereeScreen extends StatefulWidget {
+  // 무인 심판 첫 화면
+  static const routeName = '/RefereeScreen';
   final CameraDescription camera;
 
   const RefereeScreen({Key? key, required this.camera}) : super(key: key);
