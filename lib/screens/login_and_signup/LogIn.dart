@@ -45,12 +45,6 @@ class _LogInState extends State<LogIn> {
                   mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        // 테니스 재미쓰 로고
-        // Image.asset(
-        //     'images/tennis.logo.svg',
-        //     width: 80,
-        //     height: 165
-        //   ),
         SvgPicture.asset(
           'assets/images/tennis.logo.svg',
           width: 100,
