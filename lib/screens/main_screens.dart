@@ -23,7 +23,7 @@ class _MainScreensState extends State<MainScreens> {
         index: _selectedIndex,
         children: [
           TennisMatchScreen(),
-          RefereeScreen(camera: cameras.first,),
+          RefereeScreen(),
           ChattingScreen(),
           ClubScreen(),
           MyPageScreen(),

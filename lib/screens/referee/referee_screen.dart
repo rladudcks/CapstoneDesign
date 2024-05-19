@@ -1,36 +1,18 @@
-import 'dart:io';
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
-
+import 'package:tennis_jamiss/main.dart';
 import 'package:tennis_jamiss/screens/referee/ready_referee_screen.dart';
 
 class RefereeScreen extends StatefulWidget {
   // 무인 심판 첫 화면
   static const routeName = '/RefereeScreen';
-  final CameraDescription camera;
 
-  const RefereeScreen({Key? key, required this.camera}) : super(key: key);
+  const RefereeScreen({Key? key}) : super(key: key);
 
   @override
   RefereeScreenState createState() => RefereeScreenState();
 }
 
 class RefereeScreenState extends State<RefereeScreen> {
-  late List<CameraDescription> _cameras;
-  late CameraController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _initializeCamera();
-  }
-
-  Future<void> _initializeCamera() async {
-    _cameras = await availableCameras();
-    _controller = CameraController(widget.camera, ResolutionPreset.medium);
-    await _controller.initialize();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +65,7 @@ class RefereeScreenState extends State<RefereeScreen> {
                   ),
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ReadyToRefereeScreen(camera: _cameras.first,)));
+                        MaterialPageRoute(builder: (context) => ReadyToRefereeScreen(camera: cameras.first,)));
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
