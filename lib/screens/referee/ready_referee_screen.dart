@@ -69,35 +69,33 @@ class ReadyToRefereeScreenState extends State<ReadyToRefereeScreen> {
     _controller = CameraController(widget.camera, ResolutionPreset.high,
         enableAudio: false);
     await _controller.initialize();
-    setState(() {    });
+    setState(() {});
   }
 
   // 1. 카운트 화면
-  Widget countWidget(){
+  Widget countWidget() {
     return Container(
         padding: EdgeInsets.all(15),
         color: Colors.black.withOpacity(0.5),
         child: Column(
           children: [
-            Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    '0:0',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 26,
-                      fontFamily: 'Pretendard',
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  Icon(
-                    Icons.menu,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                ]),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              Text(
+                '0:0',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 26,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              Icon(
+                Icons.menu,
+                color: Colors.white,
+                size: 40,
+              ),
+            ]),
             SizedBox(
               height: 30,
             ),
@@ -153,91 +151,91 @@ class ReadyToRefereeScreenState extends State<ReadyToRefereeScreen> {
           ],
         ));
   }
+
   // 2. 카운트 만료 및 코트 인식 실패
   Widget courtDetectionFailWidget() {
     _stopTimer();
     return Container(
-            padding: EdgeInsets.all(15),
-            color: Colors.black.withOpacity(0.5),
-            child: Column(
-              children: [
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '0:0',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 26,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w600,
-                          height: 0,
-                          letterSpacing: -0.26,
-                        ),
-                      ),
-                      Icon(
-                        Icons.menu,
-                        color: Colors.white,
-                        size: 40,
-                      ),
-                    ]),
-                SizedBox(
-                  height: 30,
+        padding: EdgeInsets.all(15),
+        color: Colors.black.withOpacity(0.5),
+        child: Column(
+          children: [
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              Text(
+                '0:0',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 26,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w600,
+                  height: 0,
+                  letterSpacing: -0.26,
                 ),
-                Text(
-                  'AI모델의 테니스 코트\n인식이 실패했어요.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 26,
-                    fontFamily: 'Pretendard',
-                    fontWeight: FontWeight.w600,
-                  ),
+              ),
+              Icon(
+                Icons.menu,
+                color: Colors.white,
+                size: 40,
+              ),
+            ]),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              'AI모델의 테니스 코트\n인식이 실패했어요.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 26,
+                fontFamily: 'Pretendard',
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            SizedBox(
+              height: 35,
+            ),
+            Text(
+              '아래 다시하기 버튼을 눌러\n테니스 코트 인식을 진행해주세요',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 14,
+                fontFamily: 'Pretendard',
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            SizedBox(height: 35),
+            ElevatedButton(
+              child: Text(
+                '다시하기',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Color(0xFF464EFF),
+                  fontSize: 20,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: -0.20,
                 ),
-                SizedBox(
-                  height: 35,
-                ),
-                Text(
-                  '아래 다시하기 버튼을 눌러\n테니스 코트 인식을 진행해주세요',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
-                    fontFamily: 'Pretendard',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(height: 35),
-                ElevatedButton(
-                  child: Text(
-                    '다시하기',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color(0xFF464EFF),
-                      fontSize: 20,
-                      fontFamily: 'Pretendard',
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: -0.20,
-                    ),
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      currentState = 'count';
-                      _counter = 30;
-                      _startTimer();
-                    });
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      minimumSize: Size(200, 50),
-                      shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 1, color: Colors.white),
-                          borderRadius: BorderRadius.circular(10))),
-                ),
-              ],
-            ));
+              ),
+              onPressed: () {
+                setState(() {
+                  currentState = 'count';
+                  _counter = 30;
+                  _startTimer();
+                });
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  minimumSize: Size(200, 50),
+                  shape: RoundedRectangleBorder(
+                      side: BorderSide(width: 1, color: Colors.white),
+                      borderRadius: BorderRadius.circular(10))),
+            ),
+          ],
+        ));
   }
+
   // 3. 카운트 내 코트 인식 성공
   Widget courtDetectionSuccessWidget() {
     _stopTimer();
@@ -246,27 +244,25 @@ class ReadyToRefereeScreenState extends State<ReadyToRefereeScreen> {
         color: Colors.black.withOpacity(0.5),
         child: Column(
           children: [
-            Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    '0:0',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 26,
-                      fontFamily: 'Pretendard',
-                      fontWeight: FontWeight.w600,
-                      height: 0,
-                      letterSpacing: -0.26,
-                    ),
-                  ),
-                  Icon(
-                    Icons.menu,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                ]),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              Text(
+                '0:0',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 26,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w600,
+                  height: 0,
+                  letterSpacing: -0.26,
+                ),
+              ),
+              Icon(
+                Icons.menu,
+                color: Colors.white,
+                size: 40,
+              ),
+            ]),
             SizedBox(
               height: 30,
             ),
@@ -314,8 +310,6 @@ class ReadyToRefereeScreenState extends State<ReadyToRefereeScreen> {
   }
   // Todo : 4. Line Callling, Auto Scoring 화면 & 팝업
 
-
-
   @override
   Widget build(BuildContext context) {
     Widget currentWidget;
@@ -353,4 +347,3 @@ class ReadyToRefereeScreenState extends State<ReadyToRefereeScreen> {
     );
   }
 }
-

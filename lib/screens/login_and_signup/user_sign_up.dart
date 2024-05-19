@@ -42,16 +42,16 @@ class FormWidget extends StatefulWidget {
 class _FormWidgetState extends State<FormWidget> {
   // 텍스트 입력 필드에 입력된 값들을 저장할 변수들
   final user_formKey = GlobalKey<FormState>();
-  String ID = '';
-  String email = '';
-  String password = '';
-  String confirmPassword = '';
-  String name = '';
-  DateTime user_birthdate = DateTime.now();
-  int age = 0;
-  String gender = 'Male';
-  double ntrp = 1.0;
-  String confirmNum = '';
+  String? ID = '';
+  String? email = '';
+  String? password = '';
+  String? confirmPassword = '';
+  String? name = '';
+  DateTime? user_birthdate = DateTime.now();
+  int? age = 0;
+  String? gender = 'Male';
+  double? ntrp = 1.0;
+  String? confirmNum = '';
 
   //사용자의 포커스 여부
   bool _isFocused = false;
@@ -60,7 +60,20 @@ class _FormWidgetState extends State<FormWidget> {
   final isMale = [true, false];
 
   // NTRP dropdownbutton
-  List<double> NTRP_List = <double>[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 7.0];
+  List<double> NTRP_List = <double>[
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0,
+    5.5,
+    6.0,
+    7.0
+  ];
   double? selectedNtrp;
   void initState() {
     super.initState();
@@ -238,40 +251,40 @@ class _FormWidgetState extends State<FormWidget> {
                       ID = value;
                     },
                     decoration: InputDecoration(
-                      // 입력창 배경은 회색, 선택할 때 흰색
+                        // 입력창 배경은 회색, 선택할 때 흰색
                         hintText: '아이디를 입력해주세요 (6-20자)',
                         suffixIcon: isIDverification
                             ? Container(
-                          width: 73,
-                          height: 22,
-                          margin: EdgeInsets.all(4),
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2.5,
-                          ),
-                        )
+                                width: 73,
+                                height: 22,
+                                margin: EdgeInsets.all(4),
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2.5,
+                                ),
+                              )
                             : ElevatedButton(
-                          onPressed: verifyCode, // id 검증임 수정 필요
-                          style: ElevatedButton.styleFrom(
-                              elevation: 0,
-                              fixedSize: Size(73, 22),
-                              backgroundColor: Color(0xFFA7A7A7),
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 8, horizontal: 8),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5),
-                              )),
-                          child: Text(
-                            '중복 확인',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 8,
-                              fontFamily: 'Pretendard',
-                              fontWeight: FontWeight.w400,
-                              height: 1.0,
-                              letterSpacing: -0.08,
-                            ),
-                          ),
-                        ),
+                                onPressed: verifyCode, // id 검증임 수정 필요
+                                style: ElevatedButton.styleFrom(
+                                    elevation: 0,
+                                    fixedSize: Size(73, 22),
+                                    backgroundColor: Color(0xFFA7A7A7),
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 8, horizontal: 8),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                    )),
+                                child: Text(
+                                  '중복 확인',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 8,
+                                    fontFamily: 'Pretendard',
+                                    fontWeight: FontWeight.w400,
+                                    height: 1.0,
+                                    letterSpacing: -0.08,
+                                  ),
+                                ),
+                              ),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(5),
                             borderSide: BorderSide(color: Colors.grey)),
@@ -543,7 +556,7 @@ class _FormWidgetState extends State<FormWidget> {
                             focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5),
                                 borderSide:
-                                BorderSide(color: Color(0xFF464EFF))),
+                                    BorderSide(color: Color(0xFF464EFF))),
                             errorBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5),
                                 borderSide: BorderSide(color: Colors.red)),
@@ -673,8 +686,8 @@ class _FormWidgetState extends State<FormWidget> {
                       onPressed: (index) {
                         setState(() {
                           for (int buttonIndex = 0;
-                          buttonIndex < isMale.length;
-                          buttonIndex++) {
+                              buttonIndex < isMale.length;
+                              buttonIndex++) {
                             if (buttonIndex == index) {
                               isMale[buttonIndex] = true;
                             } else {
@@ -684,7 +697,9 @@ class _FormWidgetState extends State<FormWidget> {
                         });
                       },
                     ),
-                    SizedBox(width: 70,),
+                    SizedBox(
+                      width: 70,
+                    ),
                     DropdownButton<double>(
                       // 드롭다운의 리스트를 보여줄 값
                       value: selectedNtrp,
@@ -702,26 +717,25 @@ class _FormWidgetState extends State<FormWidget> {
                     )
                   ],
                 ),
-                SizedBox(height: 20,),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children:[
-                      Padding(
-                        padding: EdgeInsets.only(left: 35),
-                        child: Text(
-                          '이메일',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 10,
-                            fontFamily: 'Pretendard',
-                            fontWeight: FontWeight.w600,
-                            height: 1.0,
-                            letterSpacing: -0.10,
-                          ),
-                        ),
-                      ),
-                    ]
+                SizedBox(
+                  height: 20,
                 ),
+                Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 35),
+                    child: Text(
+                      '이메일',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 10,
+                        fontFamily: 'Pretendard',
+                        fontWeight: FontWeight.w600,
+                        height: 1.0,
+                        letterSpacing: -0.10,
+                      ),
+                    ),
+                  ),
+                ]),
                 SizedBox(height: 3),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -772,7 +786,7 @@ class _FormWidgetState extends State<FormWidget> {
                             focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5),
                                 borderSide:
-                                BorderSide(color: Color(0xFF464EFF))),
+                                    BorderSide(color: Color(0xFF464EFF))),
                             errorBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5),
                                 borderSide: BorderSide(color: Colors.red)),
@@ -788,10 +802,8 @@ class _FormWidgetState extends State<FormWidget> {
                           backgroundColor: Color(0xFF464EFF),
                           shape: RoundedRectangleBorder(
                               side: BorderSide(
-                                  width: 1,
-                                  color: Color(0xFF464EFF)),
-                              borderRadius:
-                              BorderRadius.circular(5))),
+                                  width: 1, color: Color(0xFF464EFF)),
+                              borderRadius: BorderRadius.circular(5))),
                       onPressed: () {
                         // Todo : 인증번호 요청 발송
                       },
@@ -858,7 +870,7 @@ class _FormWidgetState extends State<FormWidget> {
                             focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5),
                                 borderSide:
-                                BorderSide(color: Color(0xFF464EFF))),
+                                    BorderSide(color: Color(0xFF464EFF))),
                             errorBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5),
                                 borderSide: BorderSide(color: Colors.red)),
@@ -874,10 +886,8 @@ class _FormWidgetState extends State<FormWidget> {
                           backgroundColor: Color(0xFF464EFF),
                           shape: RoundedRectangleBorder(
                               side: BorderSide(
-                                  width: 1,
-                                  color: Color(0xFF464EFF)),
-                              borderRadius:
-                              BorderRadius.circular(5))),
+                                  width: 1, color: Color(0xFF464EFF)),
+                              borderRadius: BorderRadius.circular(5))),
                       onPressed: () {
                         // Todo : 인증번호 요청 발송
                       },
@@ -903,15 +913,12 @@ class _FormWidgetState extends State<FormWidget> {
                           backgroundColor: Color(0xFF464EFF),
                           shape: RoundedRectangleBorder(
                               side: BorderSide(
-                                  width: 1,
-                                  color: Color(0xFF464EFF)),
-                              borderRadius:
-                              BorderRadius.circular(20))),
+                                  width: 1, color: Color(0xFF464EFF)),
+                              borderRadius: BorderRadius.circular(20))),
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => SignUpDone()),
+                          MaterialPageRoute(builder: (context) => SignUpDone()),
                         );
                       },
                       child: Text('가입하기',
