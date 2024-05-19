@@ -324,7 +324,7 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
   String money = '';
   String message = '';
   double MaxDistance = 0;
-  RangeValues TimeRange = RangeValues(0, 100);
+  RangeValues TimeRange = RangeValues(0, 4);
 
   @override
   Widget build(BuildContext context) {
@@ -1496,8 +1496,8 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                     activeColor: Color(0xFF464EFF),
                                     inactiveColor: Color(0xFFEDEDED),
                                     min: 0,
-                                    max: 100,
-                                    divisions: 10,
+                                    max: 4,
+                                    divisions: 8,
                                     values: TimeRange,
                                     labels: RangeLabels(
                                       TimeRange.start.round().toString(),
