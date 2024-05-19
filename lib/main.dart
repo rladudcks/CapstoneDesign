@@ -8,9 +8,8 @@ import 'package:tennis_jamiss/screens/referee/referee_screen.dart';
 import 'package:tennis_jamiss/theme.dart';
 import 'package:camera/camera.dart';
 
-
 // void main() {
-//   runApp(MyApp());
+//   runApp(MyApp());`
 // }
 
 // class MyApp extends StatelessWidget {
@@ -32,10 +31,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // 사용 가능한 카메라 목록을 가져옵니다.
-  cameras = await availableCameras();
+  // final cameras = await availableCameras();
 
   // 첫 번째 카메라를 기본 카메라로 선택합니다.
-  CameraDescription firstCamera = cameras.first;
+  // final firstCamera = cameras.first;
 
   await dotenv.load(fileName: 'assets/env/.env');
 
@@ -59,7 +58,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   @override
   void initState() {
     super.initState();
