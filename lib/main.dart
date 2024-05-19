@@ -31,10 +31,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // 사용 가능한 카메라 목록을 가져옵니다.
-  final cameras = await availableCameras();
+  // final cameras = await availableCameras();
 
   // 첫 번째 카메라를 기본 카메라로 선택합니다.
-  final firstCamera = cameras.first;
+  // final firstCamera = cameras.first;
 
   await dotenv.load(fileName: 'assets/env/.env');
 

@@ -585,7 +585,7 @@ class _FormWidgetState extends State<FormWidget> {
                         title: Text(
                           DateFormat(
                             'yyyy.MM.dd',
-                          ).format(user_birthdate),
+                          ).format(user_birthdate!),
                           style: TextStyle(
                             color: Color(0xFF919191),
                             fontSize: 8,
