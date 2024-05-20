@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
 import 'package:tennis_jamiss/main.dart';
 import 'package:tennis_jamiss/screens/referee/ready_referee_screen.dart';
 
 class RefereeScreen extends StatefulWidget {
-  // 무인 심판 첫 화면
-  static const routeName = '/RefereeScreen';
 
   const RefereeScreen({Key? key}) : super(key: key);
 
@@ -13,6 +12,19 @@ class RefereeScreen extends StatefulWidget {
 }
 
 class RefereeScreenState extends State<RefereeScreen> {
+
+  late List<CameraDescription> cameras;
+
+  @override
+  void initState() {
+    super.initState();
+    _initializeCameras();
+  }
+
+  Future<void> _initializeCameras() async {
+    cameras = await availableCameras();
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
