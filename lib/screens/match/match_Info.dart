@@ -11,6 +11,13 @@ class MatchInfo extends StatefulWidget {
 }
 
 class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
+  //플러터 위젯트리에서 특정 위젯을 식별하기 위한 키
+  //폼 위젯을 효과적으로 제어하고 관리하기 위한 핵심 요소
+  //폼 상태(FormState)에 접근, _formKey.currentState!.validate() 통해 입력필드 유효성 검사, _formKey.currentState!.reset() 통해 입력필드 초기화 가능
+  final _formKey = GlobalKey<FormState>();
+
+  //controller
+  final _userIdController = TextEditingController();
   // tabbar 사용
   late TabController tabcontroller = TabController(
     vsync: this,
@@ -20,6 +27,9 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
 
   @override
   void dispose() {
+    //controller
+    final _userIdController = TextEditingController();
+
     super.dispose();
   }
 
@@ -77,9 +87,9 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                     SizedBox(width: 5),
                                     Flexible(
                                       child: Text(
-                                        Reserved_Date != null
+                                        reservationDate != null
                                             ? DateFormat('yyyy-MM-dd')
-                                                .format(Reserved_Date!)
+                                                .format(reservationDate!)
                                             : '날짜',
                                         style: TextStyle(
                                           color: Color(0xFF919191),
@@ -99,9 +109,10 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                   firstDate: DateTime.now(),
                                   lastDate: DateTime(2025),
                                 );
-                                if (picked != null && picked != Reserved_Date) {
+                                if (picked != null &&
+                                    picked != reservationDate) {
                                   setState(() {
-                                    Reserved_Date = picked;
+                                    reservationDate = picked;
                                   });
                                 }
                               },
@@ -130,9 +141,9 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                     SizedBox(width: 5),
                                     Flexible(
                                       child: Text(
-                                        _startTime != null
+                                        startTime != null
                                             ? '시작 시간'
-                                            : '${_startTime!.format(context)}',
+                                            : '${startTime!.format(context)}',
                                         style: TextStyle(
                                           color: Color(0xFF919191),
                                           fontSize: 8,
@@ -147,11 +158,11 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                               onTap: () async {
                                 final TimeOfDay? picked = await showTimePicker(
                                   context: context,
-                                  initialTime: _startTime ?? TimeOfDay.now(),
+                                  initialTime: startTime ?? TimeOfDay.now(),
                                 );
-                                if (picked != null && picked != _startTime) {
+                                if (picked != null && picked != startTime) {
                                   setState(() {
-                                    _startTime = picked;
+                                    startTime = picked;
                                   });
                                 }
                               },
@@ -191,9 +202,9 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                     SizedBox(width: 5),
                                     Flexible(
                                       child: Text(
-                                        _endTime != null
+                                        endTime != null
                                             ? '종료 시간'
-                                            : '${_endTime!.format(context)}',
+                                            : '${endTime!.format(context)}',
                                         style: TextStyle(
                                           color: Color(0xFF919191),
                                           fontSize: 8,
@@ -208,11 +219,11 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                               onTap: () async {
                                 final TimeOfDay? picked = await showTimePicker(
                                   context: context,
-                                  initialTime: _endTime ?? TimeOfDay.now(),
+                                  initialTime: endTime ?? TimeOfDay.now(),
                                 );
-                                if (picked != null && picked != _endTime) {
+                                if (picked != null && picked != endTime) {
                                   setState(() {
-                                    _endTime = picked;
+                                    endTime = picked;
                                   });
                                 }
                               },
@@ -318,13 +329,15 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
 
 // 저장할 변수들
   bool _isFocused = false;
-  DateTime? Reserved_Date = DateTime.now();
-  TimeOfDay? _startTime = TimeOfDay.now();
-  TimeOfDay? _endTime = TimeOfDay.now();
-  String money = '';
-  String message = '';
-  double MaxDistance = 0;
+  DateTime? reservationDate = DateTime.now();
+  TimeOfDay? startTime = TimeOfDay.now();
+  TimeOfDay? endTime = TimeOfDay.now();
+  String rentalCost = '';
+  String description = '';
+  double maxDistance = 0;
   RangeValues TimeRange = RangeValues(0, 4);
+  // int minTime;
+  // int maxTime;
 
   @override
   Widget build(BuildContext context) {
@@ -484,9 +497,10 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                             SizedBox(width: 16),
                                             Flexible(
                                               child: Text(
-                                                Reserved_Date != null
+                                                reservationDate != null
                                                     ? DateFormat('yyyy-MM-dd')
-                                                        .format(Reserved_Date!)
+                                                        .format(
+                                                            reservationDate!)
                                                     : '날짜',
                                                 style: TextStyle(
                                                   color: Color(0xFF919191),
@@ -508,9 +522,9 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                           lastDate: DateTime(2025),
                                         );
                                         if (picked != null &&
-                                            picked != Reserved_Date) {
+                                            picked != reservationDate) {
                                           setState(() {
-                                            Reserved_Date = picked;
+                                            reservationDate = picked;
                                           });
                                         }
                                       },
@@ -542,9 +556,9 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                             SizedBox(width: 16),
                                             Flexible(
                                               child: Text(
-                                                _startTime != null
+                                                startTime != null
                                                     ? '시작 시간'
-                                                    : '${_startTime!.format(context)}',
+                                                    : '${startTime!.format(context)}',
                                                 style: TextStyle(
                                                   color: Color(0xFF919191),
                                                   fontSize: 8,
@@ -561,12 +575,12 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                             await showTimePicker(
                                           context: context,
                                           initialTime:
-                                              _startTime ?? TimeOfDay.now(),
+                                              startTime ?? TimeOfDay.now(),
                                         );
                                         if (picked != null &&
-                                            picked != _startTime) {
+                                            picked != startTime) {
                                           setState(() {
-                                            _startTime = picked;
+                                            startTime = picked;
                                           });
                                         }
                                       },
@@ -608,9 +622,9 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                             SizedBox(width: 16),
                                             Flexible(
                                               child: Text(
-                                                _startTime != null
+                                                startTime != null
                                                     ? '종료 시간'
-                                                    : '${_startTime!.format(context)}',
+                                                    : '${startTime!.format(context)}',
                                                 style: TextStyle(
                                                   color: Color(0xFF919191),
                                                   fontSize: 8,
@@ -627,12 +641,12 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                             await showTimePicker(
                                           context: context,
                                           initialTime:
-                                              _endTime ?? TimeOfDay.now(),
+                                              endTime ?? TimeOfDay.now(),
                                         );
                                         if (picked != null &&
-                                            picked != _endTime) {
+                                            picked != endTime) {
                                           setState(() {
-                                            _endTime = picked;
+                                            endTime = picked;
                                           });
                                         }
                                       },
@@ -701,11 +715,11 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                             _isFocused = false;
                                           });
                                         },
-                                        controller:
-                                            TextEditingController(text: money),
+                                        controller: TextEditingController(
+                                            text: rentalCost),
                                         onChanged: (value) {
-                                          double.parse(money);
-                                          money = value;
+                                          double.parse(rentalCost);
+                                          rentalCost = value;
                                         },
                                         decoration: InputDecoration(
                                             // 입력창 배경은 회색, 선택할 때 흰색
@@ -1063,9 +1077,9 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                     });
                                   },
                                   controller:
-                                      TextEditingController(text: message),
+                                      TextEditingController(text: description),
                                   onChanged: (value) {
-                                    message = value;
+                                    description = value;
                                   },
                                   decoration: InputDecoration(
                                       // 입력창 배경은 회색, 선택할 때 흰색
@@ -1458,9 +1472,9 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                     min: 0,
                                     max: 100,
                                     divisions: 10,
-                                    value: MaxDistance,
+                                    value: maxDistance,
                                     onChanged: (Value) {
-                                      setState(() => MaxDistance = Value);
+                                      setState(() => maxDistance = Value);
                                     },
                                   ),
                                 ],
@@ -1622,9 +1636,9 @@ class _MatchInfoState extends State<MatchInfo> with TickerProviderStateMixin {
                                           });
                                         },
                                         controller: TextEditingController(
-                                            text: message),
+                                            text: description),
                                         onChanged: (value) {
-                                          message = value;
+                                          description = value;
                                         },
                                         decoration: InputDecoration(
                                             // 입력창 배경은 회색, 선택할 때 흰색

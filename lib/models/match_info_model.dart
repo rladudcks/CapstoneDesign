@@ -23,6 +23,7 @@ class MatchInfoModel {
   DateTime endTime;
   String objective;
   bool isSingles;
+  double maxDistance;
   List<String> dislikedCourts;
   int minTime;
   int maxTime;
@@ -37,6 +38,7 @@ class MatchInfoModel {
     required this.endTime,
     required this.objective,
     required this.isSingles,
+    required this.maxDistance,
     required this.dislikedCourts,
     required this.minTime,
     required this.maxTime,
@@ -57,6 +59,7 @@ class MatchInfoModel {
       'dislikedCourts': dislikedCourts,
       'minTime': minTime,
       'maxTime': maxTime,
+      'maxDistance': maxDistance,
       'reservationCourtId': reservationCourtId,
       'reservationDate': reservationDate.toIso8601String(),
       'rentalCost': rentalCost,
