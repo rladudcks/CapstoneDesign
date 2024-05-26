@@ -62,7 +62,7 @@ class ExampleCard extends StatelessWidget {
                   ),
                 ),
 
-                const SizedBox(height: 5),
+                const SizedBox(fvheight: 5),
                 Text(
                   'NTRP | ' + candidate.ntrp,
                   style: const TextStyle(color: Colors.grey),
